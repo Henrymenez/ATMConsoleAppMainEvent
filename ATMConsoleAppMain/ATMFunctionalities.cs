@@ -5,7 +5,7 @@
       
         event Action<string> BlockCardHolderNotification;
         event Action<string> BlockCardHolder;
-
+      
 
         public void printOptions(string language)
         {
@@ -115,13 +115,11 @@
                         CurrentUser.SetIsBlocked(true);
                         OnBlockCardHolder("Card Pin trial passed, you have been blocked");
                         Console.WriteLine("-------------------------------");
-                       
-                    }
-                    if (CurrentUser.GetIsBlocked())
-                    {
-                        Environment.Exit(0);
-                    }
+                        Thread.Sleep(3000);
+                        return;
 
+                    }
+                    
                     if (CurrentUser.GetCardPin() == userPin)
                     {
                         break;
